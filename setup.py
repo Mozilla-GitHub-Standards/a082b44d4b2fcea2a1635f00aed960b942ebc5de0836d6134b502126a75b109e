@@ -10,7 +10,7 @@ from glob import glob
 from itertools import chain
 from setuptools import Command, find_packages, setup
 
-from zs import __version__
+from zs.version import version
 
 SCRIPT_FILE = os.path.abspath(__file__)
 SCRIPT_NAME = os.path.basename(SCRIPT_FILE)
@@ -36,8 +36,8 @@ with open(os.path.join(SCRIPT_PATH, 'README.rst')) as f:
 
 setup(
     name ='zs-cli',
-    version = __version__,
-    description = 'bugzilla cli in Python',
+    version = version[1:] if version.startswith('v') else version,
+    description = 'zeus cli in Python',
     long_description = README,
     url = 'https://github.com/mozilla-it/zs-cli',
     author = 'Scott Idler',
